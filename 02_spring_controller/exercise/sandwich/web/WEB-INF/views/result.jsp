@@ -12,8 +12,8 @@
     <title>Title</title>
 </head>
 <body>
-<c:forEach items="${spice}" var="spice">
-    <p>${spice}</p>
+<c:forEach items="${spice}" var="spices">
+    <p>${spices}</p>
 </c:forEach>
 </body>
 </html>
