@@ -10,15 +10,15 @@ import service.ConvertService;
 
 @Controller
 public class ConvertMoney {
-    @Qualifier("convertServiceImpl")
+    //@Qualifier("convertServiceImpl")
     @Autowired
     private ConvertService convertService;
 
     @GetMapping({"/converts"})
-    public String convertUsdToVnd(@RequestParam String number, Model model){
-        double num = Double.parseDouble(number);
+    public String convertUsdToVnd(@RequestParam double number, Model model){
+
 //        double result = num * 23000;
-        double result = convertService.convert(num);
+        double result = convertService.convert(number);
         model.addAttribute("result", result);
 
         return "display";
