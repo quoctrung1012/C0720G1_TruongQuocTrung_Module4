@@ -23,26 +23,28 @@ public class CalculatorController {
 
     @GetMapping({"/calculator"})
     public String getCalculator(@RequestParam double number1, @RequestParam double number2, @RequestParam String calculator, Model model){
-        double result = 0;
-        String message = "Bạn đã nhập số 0";
-        switch (calculator){
-            case "Addition(+)":
-                result = calculatorService.calculatorSum(number1, number2);
-                break;
-            case  "Subtraction(-)":
-                result = calculatorService.calculatorSub(number1, number2);
-                break;
-            case "Multiplication(*)":
-                result = calculatorService.calculatorMulti(number1,number2);
-                break;
-            case "Division(/)":
-                if (number2 != 0 ){
-                    result = calculatorService.calculatorDiv(number1,number2);
-                } else {
-                    model.addAttribute("message", message);
-                    return "home";
-                }
-        }
+//        double result = 0;
+//        String message = "Bạn đã nhập số 0";
+//        switch (calculator){
+//            case "Addition(+)":
+//                result = calculatorService.calculatorSum(number1, number2);
+//                break;
+//            case  "Subtraction(-)":
+//                result = calculatorService.calculatorSub(number1, number2);
+//                break;
+//            case "Multiplication(*)":
+//                result = calculatorService.calculatorMulti(number1,number2);
+//                break;
+//            case "Division(/)":
+//                if (number2 != 0 ){
+//                    result = calculatorService.calculatorDiv(number1,number2);
+//                } else {
+//                    model.addAttribute("message", message);
+//                    return "home";
+//                }
+//        }
+//        model.addAttribute("result", result);
+        double result = calculatorService.calculator(number1,number2,calculator);
         model.addAttribute("result", result);
         return "home";
     }
