@@ -10,7 +10,7 @@ import service.ConvertService;
 
 @Controller
 public class ConvertMoney {
-    //@Qualifier("convertServiceImpl")
+    @Qualifier("convertServiceImpl")
     @Autowired
     private ConvertService convertService;
 

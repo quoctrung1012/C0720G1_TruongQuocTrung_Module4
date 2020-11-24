@@ -20,10 +20,16 @@ public class EmailController {
         pattern = Pattern.compile(EMAIL_REGEX);
     }
 
+    private boolean validate(String regex) {
+        matcher = pattern.matcher(regex);
+        return matcher.matches();
+    }
+
     @GetMapping("/")
     String getIndex() {
         return "index";
     }
+
     @PostMapping("/validate")
     String validateEmail(@RequestParam("email") String email, Model model) {
         boolean isvalid = this.validate(email);
@@ -34,8 +40,5 @@ public class EmailController {
         model.addAttribute("email", email);
         return "success";
     }
-    private boolean validate(String regex) {
-        matcher = pattern.matcher(regex);
-        return matcher.matches();
-    }
+
 }

@@ -11,16 +11,16 @@
     <title>Calculator</title>
 </head>
 <body>
-<%--<form action="/calculator">--%>
-<%--    <input type="text" name="number1" placeholder="Number 1">--%>
-<%--    <input type="text" name="number2" placeholder="Number 2"><br>--%>
-<%--    <hr>--%>
-<%--    <input type="submit" value="Addition(+)">--%>
-<%--    <input type="submit" value="Subtraction(-)">--%>
-<%--    <input type="submit" value="Multiplication(*)">--%>
-<%--    <input type="submit" value="Division(/)">--%>
-<%--    <hr>--%>
-<%--</form>--%>
+<form action="/calculator" method="get">
+    <input type="text" name="number1" placeholder="Number 1">
+    <input type="text" name="number2" placeholder="Number 2"><br>
+    <hr>
+    <input type="submit" name="calculator" value="Addition(+)">
+    <input type="submit" name="calculator" value="Subtraction(-)">
+    <input type="submit" name="calculator" value="Multiplication(*)">
+    <input type="submit" name="calculator" value="Division(/)">
+    <hr>
+</form>
 <h3>Result : ${result}</h3>
 </body>
 </html>
