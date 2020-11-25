@@ -1,24 +1,24 @@
 package com.code.model;
 
 public class Employee {
-    private int id;
+    private String id;
     private String name;
     private String contactNumber;
 
     public Employee() {
     }
 
-    public Employee(int id, String name, String contactNumber) {
+    public Employee(String id, String name, String contactNumber) {
         this.id = id;
         this.name = name;
         this.contactNumber = contactNumber;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
