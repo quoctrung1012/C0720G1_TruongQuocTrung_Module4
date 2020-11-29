@@ -30,10 +30,10 @@ public class ProductController {
         return "/create";
     }
 
-        @PostMapping("/product/save")
+    @PostMapping("/product/save")
     public String save(Product product, RedirectAttributes redirect) {
         productService.save(product);
-        redirect.addFlashAttribute("success","Saved customer successfully!");
+        redirect.addFlashAttribute("success", "Saved customer successfully!");
         return "redirect:/";
     }
 

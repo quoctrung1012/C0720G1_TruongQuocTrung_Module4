@@ -20,7 +20,7 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     @Override
     public void save(Product product) {
-        EntityTransaction entityTransaction =BaseRepository.entityManager.getTransaction();
+        EntityTransaction entityTransaction = BaseRepository.entityManager.getTransaction();
         entityTransaction.begin();
         BaseRepository.entityManager.persist(product);
         entityTransaction.commit();
@@ -32,7 +32,7 @@ public class ProductRepositoryImpl implements ProductRepository {
 //                BaseRepository.entityManager.createQuery("select s from product s where s.id = :idProduct", Product.class);
 //        typedQuery.setParameter("idProduct",id);
 //        return typedQuery.getSingleResult();
-        return BaseRepository.entityManager.find(Product.class,id);
+        return BaseRepository.entityManager.find(Product.class, id);
     }
 
     @Override
