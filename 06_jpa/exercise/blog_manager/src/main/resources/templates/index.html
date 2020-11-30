@@ -4,9 +4,9 @@
 <body>
 <h3>List Blog</h3>
 <p>
-    <a th:href="@{/blog/create}">Add new Blog</a>
+    <a th:href="@{/blog/create}"><button  class="btn btn-secondary btn-lg">Add new Blog</button></a>
 </p>
-<div class="notify">
+<div id="notify">
     <div th:if="${success}"><span th:text="${success}"></span></div>
 </div>
 <table class="table table-hover table-bordered display">
@@ -25,9 +25,9 @@
         <td th:text="${row.author}"></td>
         <td th:text="${row.dateUpdate}"></td>
         <td th:text="${row.introduce}"></td>
-        <td><a th:href="@{/blog/{id}/edit(id=${row.getId()})}">Edit</a></td>
-        <td><a th:href="@{/blog/{id}/delete(id=${row.getId()})}">Delete</a></td>
-        <td><a th:href="@{/blog/{id}/view(id=${row.getId()})}">View</a></td>
+        <td style="text-align: center"><a th:href="@{/blog/{id}/edit(id=${row.getId()})}"><button class="btn btn-success btn-lg">Edit</button></a></td>
+        <td style="text-align: center"><a th:href="@{/blog/{id}/delete(id=${row.getId()})}"><button class="btn btn-danger btn-lg">Delete</button></a></td>
+        <td style="text-align: center"><a th:href="@{/blog/{id}/view(id=${row.getId()})}"><button class="btn btn-warning btn-lg">View</button></a></td>
     </tr>
     </tbody>
 </table>

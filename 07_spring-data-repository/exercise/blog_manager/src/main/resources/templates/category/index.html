@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="blog/layout ::head">
+<body>
+<div class="container-fluid">
+    <h3>List Category</h3>
+    <p>
+        <a th:href="@{/category/create}">
+            <button class="btn btn-secondary btn-lg">Add new Category</button>
+        </a>
+    </p>
+    <div id="notify">
+        <div th:if="${success}"><span th:text="${success}"></span></div>
+    </div>
+    <form action="/listCategory" class="form-inline">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control mr-sm-2" placeholder="Input Title" name="input">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Search Title</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-hover table-bordered display">
+        <thead>
+        <tr>
+            <th>Name Category</th>
+            <th colspan="3">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row : ${categoryList}">
+            <td th:text="${row.nameCategory}"></td>
+            <td style="text-align: center"><a th:href="@{/category/{id}/edit(id=${row.getId()})}">
+                <button class="btn btn-success btn-lg">Edit</button>
+            </a></td>
+            <td style="text-align: center"><a th:href="@{/category/{id}/delete(id=${row.getId()})}">
+                <button class="btn btn-danger btn-lg">Delete</button>
+            </a></td>
+            <td style="text-align: center"><a th:href="@{/category/{id}/view(id=${row.getId()})}">
+                <button class="btn btn-warning btn-lg">View</button>
+            </a></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:if="${categoryList.hasPrevious()}" th:href="@{/listBlog(page = ${categoryList.number - 1})}"><button type="button" class="btn btn-outline-primary">Previous</button></a>
+    <span th:text="${categoryList.number + 1}"></span>/<span th:text="${categoryList.totalPages}"></span>
+    <a th:if="${categoryList.hasNext()}" th:href="@{/listBlog(page = ${categoryList.number + 1})}"><button type="button" class="btn btn-outline-primary">Next</button></a>
+</div>
+
+<footer th:replace="blog/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="category/layout :: head"></head>
+<body>
+<h3>View Blog</h3>
+<p>
+    <a th:href="@{/listCategory}"><button class="btn btn-primary btn-lg">Back to blog list</button></a>
+</p>
+<h3 style="text-align: center" th:text="${category.getNameCategory()}"></h3>
+<div id="form">
+    <form th:object="${category}" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+        <table class="table table-hover table-bordered display">
+            <tr>
+                <th>Author</th>
+                <th>Title</th>
+            </tr>
+            <th:block th:each="blog : ${blog}">
+                <tr>
+                    <td th:text="${blog.author}"></td>
+                    <td th:text="${blog.title}"></td>
+                </tr>
+            </th:block>
+        </table>
+    </form>
+</div>
+<footer th:replace="category/layout :: footer"></footer>
+</body>
+</html>
