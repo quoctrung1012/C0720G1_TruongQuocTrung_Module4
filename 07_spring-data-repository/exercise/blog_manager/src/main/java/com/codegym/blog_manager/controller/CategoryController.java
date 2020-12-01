@@ -10,14 +10,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -37,6 +35,7 @@ public class CategoryController {
             inputCheck = input.get();
             model.addAttribute("categoryList", this.categoryService.findByNameCategory(inputCheck, pageable));
         }
+        model.addAttribute("inputCheck", inputCheck);
         return "category/index";
     }
     @RequestMapping("/category/create")
@@ -52,7 +51,7 @@ public class CategoryController {
     }
     @RequestMapping("/category/{id}/edit")
     public String edit(@PathVariable Integer id, Model model){
-        model.addAttribute("category", categoryService.findById(id));
+        model.addAttribute("categoryObj", categoryService.findById(id));
         return "category/edit";
     }
     @RequestMapping("/category/update")

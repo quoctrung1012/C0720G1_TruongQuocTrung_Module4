@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -26,8 +27,12 @@ public class BlogController {
     private CategoryService categoryService;
 
     @ModelAttribute("categoryList")
-    public Iterable<Category> categoryList(){
+    public List<Category> categoryList(){
         return categoryService.findAll();
+    }
+    @RequestMapping({"/","/home"})
+    public String goHome(){
+        return "home";
     }
 
     @RequestMapping({"/listBlog"})
@@ -42,7 +47,7 @@ public class BlogController {
             model.addAttribute("blogList", this.blogService.searchBlogByTitle(inputCheck, pageable));
             //Nếu không thì đưa ra danh sách tìm kiếm được và phân trang
         }
-        model.addAttribute("inputAfterCheck", inputCheck);
+        model.addAttribute("inputCheck", inputCheck);
         return "blog/index";
     }
     @RequestMapping("/blog/create")

@@ -14,17 +14,17 @@
               method="POST" novalidate="novalidate">
             <input type="hidden" th:field="*{id}"/>
             <table class="table table-hover table-bordered display">
-<!--                <tr>-->
-<!--                    <th>Category</th>-->
-<!--                    <td>-->
-<!--                        <select class="form-control" name="categorys">-->
-<!--                            <option th:each="category : ${categoryList}"-->
-<!--                                    th:value="${category.id}"-->
-<!--                                    th:text="${category.nameCategory}"-->
-<!--                                    th:selected="(${category.id} == *{category.id})"></option>-->
-<!--                        </select>-->
-<!--                    </td>-->
-<!--                </tr>-->
+                <tr>
+                    <th>Category</th>
+                    <td>
+                        <select class="form-control" name="category">
+                            <option th:each="category : ${categoryList}"
+                                    th:value="${category.id}"
+                                    th:text="${category.nameCategory}"
+                                    th:selected="(${category.id} == *{category.id})"></option>
+                        </select>
+                    </td>
+                </tr>
                 <tr>
                     <th>Title</th>
                     <td><input class="form-control" type="text" th:field="*{title}"/></td>

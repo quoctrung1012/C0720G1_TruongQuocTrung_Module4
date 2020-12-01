@@ -34,7 +34,7 @@
         </thead>
         <tbody>
         <tr th:each="row : ${blogList}">
-            <td th:text="${row.category}"></td>
+            <td th:text="${row.category.nameCategory}"></td>
             <td th:text="${row.title}"></td>
             <td th:text="${row.author}"></td>
             <td th:text="${row.dateUpdate}"></td>
@@ -51,9 +51,9 @@
         </tr>
         </tbody>
     </table>
-    <a th:if="${blogList.hasPrevious()}" th:href="@{/student/list(page = ${blogList.number - 1}, keyword = ${inputAfterCheck})}">Previous</a>
+    <a th:if="${blogList.hasPrevious()}" th:href="@{/listBlog(page = ${blogList.number - 1}, keyword = ${inputCheck})}"><button type="button" class="btn btn-outline-primary">Back</button></a>
     <span th:text="${blogList.number + 1}"></span>/<span th:text="${blogList.totalPages}"></span>
-    <a th:if="${blogList.hasNext()}" th:href="@{/student/list(page = ${blogList.number + 1}, keyword = ${inputAfterCheck})}">Next</a>
+    <a th:if="${blogList.hasNext()}" th:href="@{/listBlog(page = ${blogList.number + 1}, keyword = ${inputCheck})}"><button type="button" class="btn btn-outline-primary">Next</button></a>
 </div>
 
 <footer th:replace="blog/layout :: footer"></footer>

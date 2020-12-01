@@ -10,7 +10,7 @@
         </a>
     </p>
     <div id="form">
-        <form action="#" th:action="@{/category/update}" th:object="${category}"
+        <form action="#" th:action="@{/category/update}" th:object="${categoryObj}"
               method="POST" novalidate="novalidate">
             <input type="hidden" th:field="*{id}"/>
             <table class="table table-hover table-bordered display">

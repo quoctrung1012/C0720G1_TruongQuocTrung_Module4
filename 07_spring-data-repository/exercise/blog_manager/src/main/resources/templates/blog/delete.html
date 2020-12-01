@@ -14,6 +14,10 @@
             <input type="hidden" th:field="*{id}"/>
             <table class="table table-hover table-bordered display">
                 <tr>
+                    <th>Category</th>
+                    <td><input class="form-control" type="text" th:field="*{category.nameCategory}" readonly/></td>
+                </tr>
+                <tr>
                     <th>Title</th>
                     <td><input class="form-control" type="text" th:field="*{title}" readonly/></td>
                 </tr>

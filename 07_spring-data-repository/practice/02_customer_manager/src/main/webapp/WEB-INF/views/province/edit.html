@@ -8,9 +8,7 @@
     <h1>Edit province</h1>
     <p>
         <a href="/provinces">Province list</a>
-    </p>
-    <th:block th:if="${message}">
-        <p th:text="${message}"></p>
+    </p><th:block th:if="${message}"><p th:text="${message}"></p>
     </th:block>
     <form th:action="@{/edit-province}" th:object="${province}" method="post">
         <input th:type="hidden" name="id" th:field="*{id}">
