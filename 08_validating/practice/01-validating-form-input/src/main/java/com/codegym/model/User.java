@@ -2,18 +2,15 @@ package com.codegym.model;
 
 import org.hibernate.validator.constraints.Length;
 
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 public class User {
 
     @NotEmpty
-    @Size(min = 2, max = 30)
+    @Size(min = 2, max = 60)
     private String name;
 
-    @Length(min = 18, max = 110)
+    @Min(18)
     private int age;
 
     public void setAge(int age) {
