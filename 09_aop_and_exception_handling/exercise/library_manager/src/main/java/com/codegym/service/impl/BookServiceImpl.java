@@ -3,6 +3,7 @@ package com.codegym.service.impl;
 import com.codegym.entity.Book;
 import com.codegym.entity.BorrowCard;
 import com.codegym.repository.BookRepository;
+import com.codegym.repository.BorrowCardRepository;
 import com.codegym.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,9 @@ public class BookServiceImpl implements BookService {
 
     @Autowired
     private BookRepository bookRepository;
+
+    @Autowired
+    private BorrowCardRepository borrowCardRepository;
 
     @Override
     public List<Book> findAll() {
@@ -34,5 +38,6 @@ public class BookServiceImpl implements BookService {
     public void remove(Integer id) {
         bookRepository.deleteById(id);
     }
+
 
 }

@@ -2,7 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="layout :: head">
 <body>
-<div class="container-fluid">
+<div th:replace="layout :: nav"></div>
+<div class="container">
     <h3>Add New Book</h3>
     <p>
         <a href="/books">
@@ -11,6 +12,7 @@
     </p>
     <form th:object="${book}" action="/books/save" method="post" novalidate="novalidate">
         <input type="hidden" th:field="*{id}">
+
         <div class="form-group">
             <label>Name book</label>
             <input type="text" th:field="*{name}" class="form-control" placeholder="Input name book">

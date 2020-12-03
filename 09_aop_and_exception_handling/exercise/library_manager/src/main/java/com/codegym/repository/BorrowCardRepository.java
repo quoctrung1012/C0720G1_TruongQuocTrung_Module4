@@ -6,5 +6,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BorrowCardRepository extends JpaRepository<BorrowCard, Integer> {
 
-    Iterable<BorrowCard> findByLikedBooks(Book book);
 }

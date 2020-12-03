@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+<body>
+<div th:replace="layout :: nav"></div>
+<div class="container">
+    <h3>Add New Book</h3>
+    <p>
+        <a href="/borrow-card">
+            <button class="btn btn-primary btn-lg">Back to borrow card list</button>
+        </a>
+    </p>
+    <form th:object="${borrowCard}" action="/borrow-card/save" method="post" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group">
+            <label>Name borrow</label>
+            <input type="text" th:field="*{nameBorrow}" class="form-control" placeholder="Input name book">
+            <!--            <small class="form-text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>-->
+        </div>
+        <div class="form-group">
+            <label>Book Name</label>
+            <select class="form-control" th:field="*{book}">
+                <option th:each="book : ${bookList}"
+                        th:value="${book.id}"
+                        th:text="${book.name}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Borrow</button>
+    </form>
+</div>
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

@@ -10,9 +10,10 @@ public interface BorrowCardService {
 
     BorrowCard findById(Integer id);
 
-    void save (BorrowCard borrowCard);
+    void save (BorrowCard borrowCard, Book book);
+
+    void update (BorrowCard borrowCard);
 
     void remove(Integer id);
 
-    Iterable<BorrowCard> findByLikedBooks(Book book);
 }

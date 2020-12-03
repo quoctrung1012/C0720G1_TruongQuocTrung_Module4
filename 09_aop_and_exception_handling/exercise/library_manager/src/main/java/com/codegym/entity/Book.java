@@ -6,8 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
+
 import java.util.Set;
 
 @Entity(name = "book")
@@ -28,8 +27,7 @@ public class Book {
 //    @Pattern(regexp = "(^$|[0-9]*$)", message = "Please input numeric !!!")
     private Integer quality;
 
-    @ManyToMany(mappedBy = "likedBooks")
-    @JsonBackReference
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
     private Set<BorrowCard> borrowCard;
 
 }

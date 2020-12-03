@@ -22,12 +22,10 @@ public class BorrowCard {
     private String dateOfBorrow;
     @Column(name = "date_of_pay", columnDefinition = "DATE")
     private String dateOfPay;
+    private boolean status;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "borrow_card_book",
-            joinColumns = @JoinColumn(name = "borrow_card_id"),
-            inverseJoinColumns = @JoinColumn(name = "book_id"))
-    @JsonManagedReference
-    private Set<Book> likedBooks;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "borrow_card_book", referencedColumnName = "id")
+    private Book book;
 
 }

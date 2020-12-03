@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Gradle : com.codegym : save-user-1.0-SNAPSHOT.war" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8a5c5327-43c0-454a-90de-425a194fdd2b" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/borrow_card/create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/borrow_card/delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/borrow_card/edit.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/borrow_card/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/borrow_card/view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../exercise/01-cart-02/src/main/java/com/codegym/controller/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../exercise/01-cart-02/src/main/java/com/codegym/entity/Cart.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../exercise/01-cart-02/src/main/java/com/codegym/entity/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../01-count-view-web/.idea/hitcounter.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../New shortcut.lnk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../java-spring-save-user-master.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.4/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.4/fileContent/annotation-processors.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.4/fileContent/fileContent.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/save-user.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/codegym/AppConfiguration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/codegym/AppInitializer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/codegym/controller/LoginController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/classes/java/main/com/codegym/model/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/classes/com/codegym/AppConfiguration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/classes/com/codegym/AppInitializer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/classes/com/codegym/controller/LoginController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/classes/com/codegym/model/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/lib/attoparser-2.0.3.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/lib/jstl-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/lib/slf4j-api-1.6.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/lib/spring-aop-4.3.17.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/lib/spring-beans-4.3.17.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/lib/spring-context-4.3.17.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/lib/spring-core-4.3.17.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/lib/spring-expression-4.3.17.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/lib/spring-web-4.3.17.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/lib/spring-webmvc-4.3.17.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/lib/standard-1.1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/lib/thymeleaf-3.0.4.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/lib/thymeleaf-spring4-3.0.4.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/lib/unbescape-1.1.4.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/exploded/save-user-1.0-SNAPSHOT.war/WEB-INF/views/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/libs/save-user-1.0-SNAPSHOT.war" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/tmp/war/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/classes/com/codegym/AppConfiguration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/classes/com/codegym/AppInitializer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/classes/com/codegym/controller/LoginController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/classes/com/codegym/model/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/AppConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/AppInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/codegym/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/LibaryManagerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/LibraryManagerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/controller/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/controller/BorrowCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/controller/BorrowCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/entity/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/entity/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/entity/BorrowCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/entity/BorrowCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/repository/BorrowCardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/repository/BorrowCardRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/service/BorrowCardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/service/BorrowCardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/service/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/service/impl/BookServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/service/impl/BorrowCardServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/java/com/codegym/service/impl/BorrowCardServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/book/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/book/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/book/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/book/delete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/book/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/book/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/book/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/book/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/book/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/book/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/home/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../09_aop_and_exception_handling/exercise/library_manager/src/main/resources/templates/layout.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="E:\App Codegym\C0720G1-TruongQuocTrung\Module 4\10-session-and-scookie\practice\java-spring-save-user-master\save-user\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="10" />
+    <option name="y" value="20" />
+    <option name="width" value="1346" />
+    <option name="height" value="688" />
+  </component>
+  <component name="ProjectId" id="1l8iy72g1tPhX1nFaf2fVPzSnMj" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.39" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8082/" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Gradle : com.codegym : save-user-1.0-SNAPSHOT.war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_save-user_2" />
+        <option name="HTTP_PORT" value="8082" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="50203" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Gradle : com.codegym : save-user-1.0-SNAPSHOT.war" />
+        </option>
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8a5c5327-43c0-454a-90de-425a194fdd2b" name="Default" comment="" />
+      <created>1526984271734</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1526984271734</updated>
+      <workItem from="1526984277822" duration="6509000" />
+      <workItem from="1527000152280" duration="407000" />
+      <workItem from="1527063041615" duration="1920000" />
+      <workItem from="1527066146428" duration="32000" />
+      <workItem from="1527067965916" duration="37000" />
+      <workItem from="1527112648288" duration="1785000" />
+      <workItem from="1527123325942" duration="6615000" />
+      <workItem from="1527556419283" duration="4717000" />
+      <workItem from="1527696549760" duration="398000" />
+      <workItem from="1527733969866" duration="9703000" />
+      <workItem from="1527748182802" duration="80000" />
+      <workItem from="1527754901777" duration="5284000" />
+      <workItem from="1527761784628" duration="63000" />
+      <workItem from="1527766384087" duration="3438000" />
+      <workItem from="1527777840027" duration="6419000" />
+      <workItem from="1606985372894" duration="1481000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606985401650">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606985401650" />
+    <state x="808" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1606985380399">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="808" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606985380399" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1606986256770">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606986256770" />
+    <state width="1293" height="282" key="GridCell.Tab.0.bottom" timestamp="1606987512266">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606987512266" />
+    <state width="1293" height="282" key="GridCell.Tab.0.center" timestamp="1606987512266">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606987512266" />
+    <state width="1293" height="282" key="GridCell.Tab.0.left" timestamp="1606987512265">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606987512265" />
+    <state width="1293" height="282" key="GridCell.Tab.0.right" timestamp="1606987512266">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606987512266" />
+    <state width="1293" height="282" key="GridCell.Tab.1.bottom" timestamp="1606987512266">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606987512266" />
+    <state width="1293" height="282" key="GridCell.Tab.1.center" timestamp="1606987512266">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="282" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606987512266" />
+    <state width="1293" height="282" key="GridCell.Tab.1.left" timestamp="1606987512266">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="282" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606987512266" />
+    <state width="1293" height="282" key="GridCell.Tab.1.right" timestamp="1606987512266">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="282" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606987512266" />
+    <state width="1293" height="282" key="GridCell.Tab.2.bottom" timestamp="1606987512267">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="282" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1606987512267" />
+    <state width="1293" height="282" key="GridCell.Tab.2.center" timestamp="1606987512266">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="282" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1606987512266" />
+    <state width="1293" height="282" key="GridCell.Tab.2.left" timestamp="1606987512266">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="282" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1606987512266" />
+    <state width="1293" height="282" key="GridCell.Tab.2.right" timestamp="1606987512267">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1293" height="282" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1606987512267" />
+    <state x="342" y="222" key="new project wizard" timestamp="1606986265775">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="342" y="222" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1606986265775" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>Gradle : com.codegym : save-user-1.0-SNAPSHOT.war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>save-user</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Gradle: commons-logging:commons-logging:1.2</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
