@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+<body>
+<div th:replace="layout :: nav"></div>
+<div class="container">
+    <h3>Book List</h3>
+    <a th:href="@{/home}"><button type="button" class="btn btn-outline-primary btn-lg">Home</button></a>
+    <p>
+        <a href="/books">
+            <button class="btn btn-primary btn-lg">Back to book list</button>
+        </a>
+    </p>
+    <p>
+        <a th:href="@{/books/create}">
+            <button class="btn btn-secondary btn-lg">Add new Blog</button>
+        </a>
+    </p>
+    <table class="table table-hover table-bordered display">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>Quality</th>
+            <th colspan="3">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row : ${listBook}">
+            <td th:text="${row.name}"></td>
+            <td th:text="${row.author}"></td>
+            <td th:text="${row.quality}"></td>
+            <td style="text-align: center"><a th:href="@{/books/{id}/edit(id=${row.getId()})}">
+                <button class="btn btn-success btn-lg">Edit</button>
+            </a></td>
+            <td style="text-align: center"><a th:href="@{/books/{id}/remove(id=${row.getId()})}">
+                <button class="btn btn-danger btn-lg">Delete</button>
+            </a></td>
+            <td style="text-align: center"><a th:href="@{/books/{id}/view(id=${row.getId()})}">
+                <button class="btn btn-warning btn-lg">View</button>
+            </a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

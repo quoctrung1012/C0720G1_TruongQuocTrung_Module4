@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+<div class="container">
+    <p>
+        <a href="/books">
+            <button class="btn btn-primary btn-lg">Back to book list</button>
+        </a>
+    </p>
+    <div>
+        <form action="/books/update" th:object="${book}" method="POST" novalidate="novalidate">
+            <input type="hidden" th:field="*{id}"/>
+            <table class="table table-hover table-bordered display">
+                <tr>
+                    <th>Name Book</th>
+                    <td><input class="form-control" type="text" th:field="*{name}"/></td>
+                </tr>
+                <tr>
+                    <th>Author Book</th>
+                    <td><input class="form-control" type="text" th:field="*{author}"/></td>
+                </tr>
+                <tr>
+                    <th>Quality</th>
+                    <td><input class="form-control" type="text" th:field="*{quality}"/></td>
+                </tr>
+            </table>
+            <button type="submit" class="btn btn-success">Modify</button>
+        </form>
+    </div>
+</div>
+
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

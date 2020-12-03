@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+<body>
+<div class="container-fluid">
+    <h3>Add New Book</h3>
+    <p>
+        <a href="/books">
+            <button class="btn btn-primary btn-lg">Back to book list</button>
+        </a>
+    </p>
+    <form th:object="${book}" action="/books/save" method="post" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group">
+            <label>Name book</label>
+            <input type="text" th:field="*{name}" class="form-control" placeholder="Input name book">
+            <small class="form-text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
+        </div>
+        <div class="form-group">
+            <label>Author</label>
+            <input type="text" th:field="*{author}" class="form-control" placeholder="Input author">
+            <small class="form-text text-danger" th:if="${#fields.hasErrors('author')}" th:errors="*{author}"></small>
+        </div>
+        <div class="form-group">
+            <label>Quality</label>
+            <input type="number" th:field="*{quality}" class="form-control" placeholder="Input quality">
+            <small class="form-text text-danger" th:if="${#fields.hasErrors('quality')}" th:errors="*{quality}" ></small>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+</div>
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>
