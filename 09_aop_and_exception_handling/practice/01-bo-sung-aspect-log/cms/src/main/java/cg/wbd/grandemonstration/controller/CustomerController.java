@@ -31,7 +31,12 @@ public class CustomerController {
     @GetMapping
     public ModelAndView showList(Optional<String> s, Pageable pageInfo) {
         ModelAndView modelAndView = new ModelAndView("customers/list");
-        Page<Customer> customers = s.isPresent() ? search(s, pageInfo) : getPage(pageInfo);
+        Page<Customer> customers = null;
+        try {
+            customers = s.isPresent() ? search(s, pageInfo) : getPage(pageInfo);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         modelAndView.addObject("keyword", s.orElse(null));
         modelAndView.addObject("customers", customers);
         return modelAndView;
@@ -39,10 +44,15 @@ public class CustomerController {
 
     @GetMapping("{id}")
     public ModelAndView showInformation(@PathVariable Long id) {
-        ModelAndView modelAndView = new ModelAndView("customers/info");
-        Customer customer = customerService.findOne(id);
-        modelAndView.addObject("customer", customer);
-        return modelAndView;
+        try {
+            ModelAndView modelAndView = new ModelAndView("customers/info");
+            Customer customer = null;
+            customer = customerService.findOne(id);
+            modelAndView.addObject("customer", customer);
+            return modelAndView;
+        } catch (Exception e) {
+            return new ModelAndView("redirect:/customers");
+        }
     }
 
     @PostMapping
@@ -51,7 +61,7 @@ public class CustomerController {
         return "redirect:/customers";
     }
 
-    private Page<Customer> getPage(Pageable pageInfo) {
+    private Page<Customer> getPage(Pageable pageInfo) throws Exception {
         return customerService.findAll(pageInfo);
     }
 

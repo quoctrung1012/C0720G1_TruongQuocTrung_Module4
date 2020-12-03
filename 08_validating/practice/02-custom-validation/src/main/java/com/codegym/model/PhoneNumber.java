@@ -34,7 +34,7 @@ public class PhoneNumber implements Validator {
         if (number.equals("")) {
             errors.rejectValue("numberOfPhone", "number.empty");
         }
-        if (number.length()>11 || phoneNumber.numberOfPhone.length()<10){
+        if (number.length()>11 || number.length()<10){
             errors.rejectValue("numberOfPhone", "number.length");
         }
         if (!number.startsWith("0")){
@@ -43,18 +43,5 @@ public class PhoneNumber implements Validator {
         if (!number.matches("(^$|[0-9]*$)")){
             errors.rejectValue("numberOfPhone", "number.matches");
         }
-
-
-//        String number = phoneNumber.getNumber();
-//        ValidationUtils.rejectIfEmpty(errors, "number", "number.empty");
-//        if (number.length() > 11 || number.length() < 10) {
-//            errors.rejectValue("number", "number.length");
-//        }
-//        if (!number.startsWith("0")) {
-//            errors.rejectValue("number", "number.startsWith");
-//        }
-//        if (!number.matches("(^$|[0-9]*$)")) {
-//            errors.rejectValue("number", "number.matches");
-//        }
     }
 }

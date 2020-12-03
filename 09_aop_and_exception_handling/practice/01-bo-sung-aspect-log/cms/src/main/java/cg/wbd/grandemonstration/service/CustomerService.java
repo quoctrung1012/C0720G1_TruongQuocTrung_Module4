@@ -9,13 +9,13 @@ import java.util.List;
 public interface CustomerService {
     List<Customer> findAll();
 
-    Page<Customer> findAll(Pageable pageInfo);
+    Page<Customer> findAll(Pageable pageInfo)  throws Exception;
 
     List<Customer> search(String keyword);
 
     Page<Customer> search(String keyword, Pageable pageInfo);
 
-    Customer findOne(Long id);
+    Customer findOne(Long id) throws Exception;
 
     Customer save(Customer customer);
 

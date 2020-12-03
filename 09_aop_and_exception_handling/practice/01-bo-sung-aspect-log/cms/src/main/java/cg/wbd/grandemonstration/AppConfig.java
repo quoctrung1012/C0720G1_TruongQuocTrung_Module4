@@ -1,5 +1,6 @@
 package cg.wbd.grandemonstration;
 
+import cg.wbd.grandemonstration.concern.Logger;
 import cg.wbd.grandemonstration.formatter.ProvinceFormatter;
 import cg.wbd.grandemonstration.service.CustomerService;
 import cg.wbd.grandemonstration.service.ProvinceService;
@@ -12,6 +13,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.format.Formatter;
@@ -44,6 +46,7 @@ import java.util.Properties;
 @EnableJpaRepositories("cg.wbd.grandemonstration.repository")
 @EnableSpringDataWebSupport
 @EnableTransactionManagement
+@EnableAspectJAutoProxy
 public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
     private ApplicationContext appContext;
 
@@ -92,7 +95,7 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/cms");
         dataSource.setUsername("root");
-        dataSource.setPassword("123456");
+        dataSource.setPassword("admin");
         return dataSource;
     }
 
@@ -133,5 +136,9 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         ProvinceService provinceService = appContext.getBean(ProvinceService.class);
         Formatter provinceFormatter = new ProvinceFormatter(provinceService);
         registry.addFormatter(provinceFormatter);
+    }
+    @Bean
+    public Logger logger() {
+        return new Logger();
     }
 }

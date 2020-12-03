@@ -14,7 +14,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Documented
 @Constraint(validatedBy = BirthDateValidate.class)
 public @interface BirthOfDate {
-    String message() default "Over 18 years old";
+    String message() default "Over 18 years old and under 110 years old";
 
     Class<?>[] groups() default { };
 
