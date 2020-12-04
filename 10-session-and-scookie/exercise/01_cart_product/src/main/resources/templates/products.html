@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul th:replace="fragments/header :: navigation"></ul>
+<form th:action="@{/cart/add}">
+    <table border="1">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>
+                <input type="hidden" th:value="${product.id}" name="id"/>
+                <span th:text="${product.id}"></span>
+            </td>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td th:text="${product.name}"></td>
+        </tr>
+        <tr>
+            <th>Sku</th>
+            <td th:text="${product.sku}"></td>
+        </tr>
+        <tr>
+            <th>Price</th>
+            <td th:text="${product.price}"></td>
+        </tr>
+        <tr>
+            <th>Quality</th>
+            <td>
+                <input type="number" min="1" value="1" name="quality"/>
+            </td>
+        </tr>
+        <tr>
+            <th>Add cart</th>
+            <td>
+                <button type="submit">Them Vao Gio Hang</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
+</body>
+</html>

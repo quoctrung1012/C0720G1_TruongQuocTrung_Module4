@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul th:replace="fragments/header :: navigation"></ul>
+<h2>Tong Tien: <span th:text="${session.gioHang.total}"></span></h2>
+<table border="1">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quality</th>
+        <th>Sub Total</th>
+        <th>Remove</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${session.gioHang.itemList}">
+        <td th:text="${item.products.id}"></td>
+        <td th:text="${item.products.name}"></td>
+        <td th:text="${item.products.price}"></td>
+        <td>
+            <form action="#" th:action="@{/cart/update}" method="post">
+                <input type="hidden" th:value="${item.products.id}" name="id">
+                <input type="number" min="1" th:value="${item.quality}" name="quality"/>
+                <button type="submit">Update</button>
+            </form>
+        </td>
+        <td th:text="${item.subTotal}"></td>
+        <td>
+            <form action="#" th:action="@{/cart/remove}" method="post">
+                <input type="hidden" th:value="${item.products.id}" name="=id">
+                <button type="submit">Remove</button>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

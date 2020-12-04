@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul th:fragment="navigation">
+    <li>
+        <a th:href="@{/}">Trang Chu</a>
+    </li>
+    <li>
+        <a th:href="@{/shop}">Danh Muc San Pham</a>
+    </li>
+    <li>
+        <a th:href="@{/cart}">Gio Hang</a>
+    </li>
+
+</ul>
+</body>
+</html>
