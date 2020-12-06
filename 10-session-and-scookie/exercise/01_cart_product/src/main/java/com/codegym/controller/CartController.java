@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 
 @Controller
+@RequestMapping("/cart")
 public class CartController {
     @Autowired
     private ProductService productService;
@@ -25,9 +26,9 @@ public class CartController {
     public String add(HttpSession session, @RequestParam("id") Long id,
                       @RequestParam(value = "quality" , required = false,defaultValue = "1") Integer quality){
         Products product = productService.findById(id);
-        Cart cart = cartManager.getCart(session);// laays veef gior hangf
-        cart.addItem(product, quality);// them san pham vao gio hang
-        return "cart";
+        Cart cart = cartManager.getCart(session);// lay ve gio hang
+        cart.addItem(product, quality);// them san pham, so luong vao gio hang
+        return "redirect:/shop";
     }
     @RequestMapping("/remove")// Xoa sp trong gio
     public String remove(HttpSession session, @RequestParam("id") Long id){

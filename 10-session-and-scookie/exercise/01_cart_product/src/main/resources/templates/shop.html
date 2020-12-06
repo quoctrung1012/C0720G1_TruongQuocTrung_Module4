@@ -13,19 +13,19 @@
         <th>Name</th>
         <th>Sku</th>
         <th>Price</th>
-        <th colspan="3">Action</th>
+        <th colspan="2">Action</th>
     </tr>
     </thead>
     <tbody>
         <tr th:each="product : ${products}">
             <td th:text="${product.id}"></td>
-            <td><a th:href="@{/product{id}(id=${product.id})}" th:text="${product.name}"></a></td>
+            <td><a th:href="@{/product/{id}(id=${product.id})}" th:text="${product.name}"></a></td>
 <!--            <td th:text="${product.name}"></td>-->
             <td th:text="${product.sku}"></td>
             <td th:text="${product.price}"></td>
-<!--            <td><a th:href="@{/product{id}(id=${product.id})}"><butto>View</butto></a></td>-->
+<!--            <td><a th:href="@{/product/{id}(id=${product.id})}"><butto>View</butto></a></td>-->
             <td>
-                <form action="#" th:action="@{/cart/add}" method="post">
+                <form  th:action="@{/cart/add}" method="post">
                     <input type="hidden" th:value="${product.id}" name="id">
                     <button type="submit">Them Vao Gio Hang</button>
                 </form>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="08dffba8-331d-4568-972e-1a7993cb7cff" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/cms/src/main/java/cg/wbd/grandemonstration/service/impl/CustomerServiceImplWithSpringData.java" beforeDir="false" afterPath="$PROJECT_DIR$/cms/src/main/java/cg/wbd/grandemonstration/service/impl/CustomerServiceImplWithSpringData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cms/src/main/java/cg/wbd/grandemonstration/service/impl/ProvinceServiceImplWithSpringData.java" beforeDir="false" afterPath="$PROJECT_DIR$/cms/src/main/java/cg/wbd/grandemonstration/service/impl/ProvinceServiceImplWithSpringData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../10-session-and-scookie/exercise/01_cart_product/src/main/java/com/codegym/controller/CartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../10-session-and-scookie/exercise/01_cart_product/src/main/java/com/codegym/controller/CartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../10-session-and-scookie/exercise/01_cart_product/src/main/java/com/codegym/model/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../10-session-and-scookie/exercise/01_cart_product/src/main/java/com/codegym/model/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../10-session-and-scookie/exercise/01_cart_product/src/main/resources/templates/shop.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../10-session-and-scookie/exercise/01_cart_product/src/main/resources/templates/shop.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="1lBhabh5rZjnDCt7epWRwyz3Qc3" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cms" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="08dffba8-331d-4568-972e-1a7993cb7cff" name="Default Changelist" comment="" />
+      <created>1607076456050</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607076456050</updated>
+      <workItem from="1607076457393" duration="340000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1607076464674">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607076464674" />
+  </component>
+</project>

@@ -4,12 +4,13 @@ import cg.wbd.grandemonstration.model.Province;
 import cg.wbd.grandemonstration.repository.ProvinceRepository;
 import cg.wbd.grandemonstration.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
-
+@Service
 public class ProvinceServiceImplWithSpringData implements ProvinceService {
     @Autowired
     private ProvinceRepository provinceRepository;

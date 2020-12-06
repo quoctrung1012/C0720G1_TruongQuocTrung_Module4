@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="blog/layout ::head">
+<head th:replace="/layout ::head">
 <body>
 <div class="container-fluid">
     <h3>List Category</h3>
@@ -48,6 +48,6 @@
     <a th:if="${categoryList.hasNext()}" th:href="@{/listBlog(page = ${categoryList.number + 1})}"><button type="button" class="btn btn-outline-primary">Next</button></a>
 </div>
 
-<footer th:replace="blog/layout :: footer"></footer>
+<footer th:replace="/layout :: footer"></footer>
 </body>
 </html>
