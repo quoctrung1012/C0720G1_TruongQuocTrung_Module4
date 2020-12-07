@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/apiBlog")
+@CrossOrigin// dùng để đọc kiểu ajax
 public class BlogControllerRest {
     
     @Autowired
