@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title><span th:text="#{provinces}"/></title>
+</head>
+<body>
+    <a href="/create-province"><span th:text="#{add}"/> <span th:text="#{provinces}"/></a>
+    <p>
+        <a href="/home"><span th:text="#{home}"/></a>
+    </p>
+<h1><span th:text="#{list}"/> <span th:text="#{provinces}"/></h1>
+<table border="1">
+    <tr>
+        <th><span th:text="#{name}"/> <span th:text="#{provinces}"/></th>
+        <th><span th:text="#{edit}"/></th>
+        <th><span th:text="#{delete}"/></th>
+    </tr>
+    <th:block th:each="province : ${provinces}">
+        <tr>
+            <td><a th:href="@{/view-province/__${province.id}__}" th:text="${province.name}"></a></td>
+            <td><a th:href="@{/edit-province/__${province.id}__ }">Edit</a></td>
+            <td><a th:href="@{/delete-province/__${province.id}__ }">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+    <p>
+    <a href="/customers"><span th:text="#{customers}"/></a>|||
+    <a href="/provinces"><span th:text="#{provinces}"/></a></p>
+</body>
+</html>

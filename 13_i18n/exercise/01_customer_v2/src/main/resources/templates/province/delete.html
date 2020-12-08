@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete province</title>
+</head>
+<body>
+    <h1><span th:text="#{delete}"/> <span th:text="#{provinces}"/></h1>
+    <h2><span th:text="#{message}"/></h2>
+    <p>
+        <a href="/home"><span th:text="#{home}"/></a>
+    </p>
+    <p>
+        <a href="/provinces"><span th:text="#{list}"/> <span th:text="#{provinces}"/></a>
+    </p>
+    <form th:action="@{/delete-province}" th:object="${province}" method="post">
+        <input th:type="hidden" name="id" th:field="*{id}">
+        <table>
+            <tr>
+                <td><span th:text="#{name}"/>:</td>
+                <td th:text="${province.name}"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button type="submit"><span th:text="#{delete}"/></button></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
