@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search By Id and Create new Blog</title>
+
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Input Id</th>
+            <th><input type="text" id="searchId"></th>
+            <th><button id="btnLoad">Load InFor</button></th>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td colspan="2" id="categoryOut"></td>
+        </tr>
+        <tr>
+            <th>Title</th>
+            <td colspan="2" id="titleOut"></td>
+        </tr>
+        <tr>
+            <th>Author</th>
+            <td colspan="2" id="authorOut"></td>
+        </tr>
+        <tr>
+            <th>Date Update</th>
+            <td colspan="2" id="dateOut"></td>
+        </tr>
+        <tr>
+            <th>Short Word</th>
+            <td colspan="2" id="shortWordOut"></td>
+        </tr>
+
+        <tr>
+            <th>Introduce</th>
+            <td colspan="2" id="introduceOut"></td>
+        </tr>
+        <tr>
+            <th>Content</th>
+            <td colspan="2" ><pre id="contentOut"></pre></td>
+        </tr>
+    </table>
+    <br><br><br>
+    <table border="1">
+        <tr>
+            <th>Title</th>
+            <td><input class="form-control" id="titleIn" type="text" /></td>
+        </tr>
+        <tr>
+            <th>Author</th>
+            <td><input class="form-control" id="authorIn" type="text" /></td>
+        </tr>
+        <tr>
+            <th>Date Update</th>
+            <td><input class="form-control" id="dateIn" type="date" /></td>
+        </tr>
+        <tr>
+            <th>Short Word</th>
+            <td><input class="form-control" id="shortWordIn" type="text" /></td>
+        </tr>
+        <tr>
+            <th>Introduce</th>
+            <td><input class="form-control" id="introduceIn" type="text" /></td>
+        </tr>
+        <tr>
+            <th>Content</th>
+            <td>
+                <div class="form-group">
+                    <textarea class="form-control" id="contentIn" rows="5" type="text" ></textarea>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th>Category</th>
+            <td>
+                <select id="categoryIn">
+                    <option value="1">Phap Luat</option>
+                    <option value="2">Doi Song</option>
+                    <option value="3">Quan Su</option>
+                    <option value="4">Van Hoa</option>
+                    <option value="5">Chinh Tri</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <th><button id="btnRegister">Register</button></th>
+        </tr>
+    </table>
+
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script>
+
+        $("#btnLoad").click(function() {
+            let idBlog = $("#searchId").val();
+            $.ajax({
+                type: "GET", //GET, DELETE, PUT...
+                url:"http://localhost:8080/apiBlog/blog/" + idBlog,
+                dataType: "json",
+                success: function(blogResult) {
+                    $("#categoryOut").text(blogResult.category.nameCategory);
+                    $("#titleOut").text(blogResult.title);
+                    $("#authorOut").text(blogResult.author);
+                    $("#dateOut").text(blogResult.dateUpdate);
+                    $("#shortWordOut").text(blogResult.shortWord);
+                    $("#introduceOut").text(blogResult.introduce);
+                    $("#contentOut").text(blogResult.content);
+                    console.log(blogResult);
+                },
+                error: function(result) {
+                    console.log(result);
+                }
+            });
+        });
+
+        $("#btnRegister").click(function () {
+            let titleBlog =$("#titleIn").val();
+            let authorBlog =$("#authorIn").val();
+            let dateBlog =$("#dateIn").val();
+            let introduceBlog =$("#introduceIn").val();
+            let contentBlog =$("#contentIn").val();
+            let categoryBlog =$("#categoryIn").val();
+            let shortWordBlog = $("#shortWordIn").val();
+            let objBlog = {
+                "title": titleBlog,
+                "content": contentBlog,
+                "author": authorBlog,
+                "introduce": introduceBlog,
+                "dateUpdate": dateBlog,
+                "category": {
+                    "id": categoryBlog
+                },
+                "shortWord": shortWordBlog
+            };
+
+            $.ajax({
+                type: "POST", //GET, DELETE, PUT...
+                url: "http://localhost:8080/apiBlog/blog/",
+                data: JSON.stringify(objBlog),
+                contentType: "application/json; charset=utf-8",
+                success: function(result){
+                    console.log("Success");
+                    alert("Success");
+                },
+                error: function(result) {
+                    console.log("Error");
+                    alert("Error")
+                }
+            })
+        });
+
+
+
+    </script>
+
+</body>
+</html>
