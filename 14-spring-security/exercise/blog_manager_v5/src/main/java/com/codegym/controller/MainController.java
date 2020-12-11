@@ -9,6 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,26 +19,6 @@ import java.util.Optional;
 
 @Controller
 public class MainController {
-
-    @Autowired
-    private BlogService blogService;
-    
-    @RequestMapping(value = {"/", "/welcome","/listBlogSecurity"}, method = RequestMethod.GET)
-    public String listBlogSecurity(Principal principal, Model model, @PageableDefault(size = 3) Pageable pageable, @RequestParam Optional<String> input) {
-        String inputCheck = ""; //check để tiếp tục search và phân trang
-        model.addAttribute("message", "This is welcome page!");
-        if (!input.isPresent()) {
-            model.addAttribute("blogList", this.blogService.findAll(pageable)); // nếu trống thì đưa ra danh sách có phân trang
-        } else {
-            inputCheck = input.get();
-            model.addAttribute("blogList", this.blogService.searchBlogByTitle(inputCheck, pageable));
-            //Nếu không thì đưa ra danh sách tìm kiếm được và phân trang
-        }
-
-        model.addAttribute("inputCheck", inputCheck);
-        return "blog/index_security";
-    }
-
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage(Model model) {

@@ -45,14 +45,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
 
         // Các trang không yêu cầu login
-        http.authorizeRequests().antMatchers("/", "/login", "/logout").permitAll();
+        http.authorizeRequests().antMatchers("/", "/login", "/logout","/blog/{id}/view_guest","/listBlogSecurity").permitAll();
 
         // Trang /userInfo yêu cầu phải login với vai trò ROLE_USER hoặc ROLE_ADMIN.
         // Nếu chưa login, nó sẽ redirect tới trang /login.
-        http.authorizeRequests().antMatchers("/userInfo","/blog/create","/blog/edit","/blog/delete","/blog/view","/listBlog","/listBlogSecurity").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
+        http.authorizeRequests().antMatchers("/userInfo","/blog/**","/blog/{id}/**","/listBlog").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
 
         // Trang chỉ dành cho ADMIN
-        http.authorizeRequests().antMatchers("/admin","/listCategory","/category/create","/category/edit","/category/delete","/category/view").access("hasRole('ROLE_ADMIN')");
+        //http.authorizeRequests().antMatchers("/admin","/listCategory","/category/**", "/category/{id}/**").access("hasRole('ROLE_ADMIN')");
+        http.authorizeRequests().antMatchers("/**").access("hasRole('ROLE_ADMIN')");
 
         // Khi người dùng đã login, với vai trò XX.
         // Nhưng truy cập vào trang yêu cầu vai trò YY,
@@ -63,11 +64,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().and().formLogin()//
                 // Submit URL của trang login
                 .loginProcessingUrl("/j_spring_security_check") // Submit URL
-                .loginPage("/login")//
-                .defaultSuccessUrl("/userAccountInfo")//
-                .failureUrl("/login?error=true")//
-                .usernameParameter("username")//
-                .passwordParameter("password")
+                .loginPage("/login")//chưa đăng nhập đưa ra trang login
+                .defaultSuccessUrl("/welcome")// đưa ra trang chủ
+                .failureUrl("/login?error=true")// kiểm tra login lỗi hay sai
+                .usernameParameter("username")// kiểm tra username trong database
+                .passwordParameter("password")//kiểm tra password của username
                 // Cấu hình cho Logout Page.
                 .and().logout().logoutUrl("/logout").logoutSuccessUrl("/logoutSuccessful");
 

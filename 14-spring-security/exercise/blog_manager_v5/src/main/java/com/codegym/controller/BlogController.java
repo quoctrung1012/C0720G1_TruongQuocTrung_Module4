@@ -43,22 +43,16 @@ public class BlogController {
 //        model.addAttribute("blogList", this.blogService.findAll(pageable));//phan trang
         String inputCheck = ""; //check để tiếp tục search và phân trang
         if (!input.isPresent()) {
-            model.addAttribute("blogList", this.blogService.findAll(pageable)); // nếu tróng thì đưa ra danh sách có phân trang
+            model.addAttribute("blogList", this.blogService.findAll(pageable)); // nếu trống thì đưa ra danh sách có phân trang
         } else {
             inputCheck = input.get();
             model.addAttribute("blogList", this.blogService.searchBlogByTitle(inputCheck, pageable));
             //Nếu không thì đưa ra danh sách tìm kiếm được và phân trang
         }
         model.addAttribute("inputCheck", inputCheck);
-        //Phân Quyền
-//        User loginedUser = (User) ((Authentication) principal).getPrincipal();
-//
-//        String userInfo = WebUtils.toString(loginedUser);
-//        model.addAttribute("userInfo", userInfo);
 
         return "blog/index";
     }
-
 
     @RequestMapping("/blog/create")
     public String create(Model model) {
@@ -70,7 +64,7 @@ public class BlogController {
     public String save(Blog blog, RedirectAttributes redirect) {
         blogService.save(blog);
         redirect.addFlashAttribute("success", "Saved customer successfully!");
-        return "redirect:/listBlogAuthor";
+        return "redirect:/listBlog";
     }
 
     @RequestMapping("/blog/{id}/edit")
@@ -83,7 +77,7 @@ public class BlogController {
     public String update(Blog blog, RedirectAttributes redirect) {
         blogService.save(blog);
         redirect.addFlashAttribute("success", "Modified customer successfully!");
-        return "redirect:/listBlogAuthor";
+        return "redirect:/listBlog";
     }
 
     @RequestMapping("/blog/{id}/delete")
@@ -96,12 +90,35 @@ public class BlogController {
     public String delete(Blog blog, RedirectAttributes redirect) {
         blogService.remove(blog.getId());
         redirect.addFlashAttribute("success", "Removed customer successfully!");
-        return "redirect:/listBlogAuthor";
+        return "redirect:/listBlog";
     }
 
     @RequestMapping("/blog/{id}/view")
     public String view(@PathVariable Integer id, Model model) {
         model.addAttribute("blog", blogService.findById(id));
         return "blog/view";
+    }
+
+    //============================================================================
+    //Phân quyền trang khách
+    @RequestMapping(value = {"/", "/welcome","/listBlogSecurity"}, method = RequestMethod.GET)
+    public String listBlogSecurity(Principal principal, Model model, @PageableDefault(size = 3) Pageable pageable, @RequestParam Optional<String> input) {
+        String inputCheck = ""; //check để tiếp tục search và phân trang
+        model.addAttribute("message", "This is welcome page!");
+        if (!input.isPresent()) {
+            model.addAttribute("blogList", this.blogService.findAll(pageable)); // nếu trống thì đưa ra danh sách có phân trang
+        } else {
+            inputCheck = input.get();
+            model.addAttribute("blogList", this.blogService.searchBlogByTitle(inputCheck, pageable));
+            //Nếu không thì đưa ra danh sách tìm kiếm được và phân trang
+        }
+
+        model.addAttribute("inputCheck", inputCheck);
+        return "blog/index_security";
+    }
+    @RequestMapping("/blog/{id}/view_guest")
+    public String viewSecurity(@PathVariable Integer id, Model model) {
+        model.addAttribute("blog", blogService.findById(id));
+        return "blog/view_guest";
     }
 }

@@ -7,7 +7,7 @@
     <h3>List Blog</h3>
     <p>
         <a th:href="@{/blog/create}">
-            <button class="btn btn-secondary btn-lg">Add new Blog</button>
+            <button class="btn btn-outline-secondary btn-lg">Add new Blog</button>
         </a>
     </p>
     <div id="notify">
@@ -39,25 +39,41 @@
             <td th:text="${row.title}"></td>
             <td th:text="${row.author}"></td>
             <td th:text="${row.dateUpdate}"></td>
-            <td th:text="${row.getShortWord()}" data-toggle="tooltip" data-placement="top" th:title="${row.introduce}"></td>
+            <td th:text="${row.getShortWord()}" data-toggle="tooltip" data-placement="top"
+                th:title="${row.introduce}"></td>
             <td style="text-align: center"><a th:href="@{/blog/{id}/edit(id=${row.getId()})}">
-                <button class="btn btn-success btn-lg">Edit</button>
+                <button class="btn btn-outline-success btn-lg">Edit</button>
             </a></td>
             <td style="text-align: center"><a th:href="@{/blog/{id}/delete(id=${row.getId()})}">
-                <button class="btn btn-danger btn-lg">Delete</button>
+                <button class="btn btn-outline-danger btn-lg">Delete</button>
             </a></td>
             <td style="text-align: center"><a th:href="@{/blog/{id}/view(id=${row.getId()})}">
-                <button class="btn btn-warning btn-lg">View</button>
+                <button class="btn btn-outline-warning btn-lg">View</button>
             </a></td>
         </tr>
         </tbody>
     </table>
-    <a th:if="${blogList.hasPrevious()}" th:href="@{/listBlog(page = ${blogList.number - 1}, keyword = ${inputCheck})}"><button type="button" class="btn btn-outline-primary">Back</button></a>
+    <a th:if="${blogList.hasPrevious()}" th:href="@{/listBlog(page = ${blogList.number - 1}, keyword = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary">Back</button>
+    </a>
     <span th:text="${blogList.number + 1}"></span>/<span th:text="${blogList.totalPages}"></span>
-    <a th:if="${blogList.hasNext()}" th:href="@{/listBlog(page = ${blogList.number + 1}, keyword = ${inputCheck})}"><button type="button" class="btn btn-outline-primary">Next</button></a>
-</div>
+    <a th:if="${blogList.hasNext()}" th:href="@{/listBlog(page = ${blogList.number + 1}, keyword = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary">Next</button>
+    </a>
+    <br><br>
 
-<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+    <a th:href="@{/listBlog(page = 0, keyword = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary">First</button>
+    </a>
+    <th:block th:each="i: ${#numbers.sequence(blogList.number, blogList.totalPages - 1)}">
+        <button type="button" class="btn btn-outline-primary">
+            <a th:href="@{/listBlog(page = ${i}, keyword = ${inputCheck})}" th:text="${i + 1}"></a>
+        </button>
+    </th:block>
+    <a th:href="@{/listBlog(page = ${blogList.totalPages - 1}, keyword = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary">Last</button>
+    </a>
+</div>
 
 <footer th:replace="/layout :: footer"></footer>
 </body>

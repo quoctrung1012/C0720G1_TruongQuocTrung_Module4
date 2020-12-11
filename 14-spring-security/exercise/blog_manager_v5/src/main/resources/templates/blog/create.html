@@ -2,12 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/layout :: head"></head>
 <body>
-<th:block th:include="/login/_menu"></th:block>
+
 <div class="container-fluid">
+    <th:block th:include="/login/_menu"></th:block>
     <h3>Add Blog</h3>
     <p>
         <a th:href="@{/listBlog}">
-            <button class="btn btn-primary btn-lg">Back to blog list</button>
+            <button class="btn btn-outline-primary btn-lg">Back to blog list</button>
         </a>
     </p>
     <div id="form">
@@ -49,7 +50,7 @@
                     </td>
                 </tr>
             </table>
-            <button type="submit" class="btn btn-success btn-lg">Save</button>
+            <button type="submit" class="btn btn-outline-success btn-lg">Save</button>
         </form>
     </div>
 </div>

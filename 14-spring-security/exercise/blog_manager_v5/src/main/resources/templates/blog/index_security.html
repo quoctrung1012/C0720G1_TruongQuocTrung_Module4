@@ -25,7 +25,7 @@
             <th>Author</th>
             <th>Date Update</th>
             <th>Introduce</th>
-            <th colspan="3">Action</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -35,8 +35,8 @@
             <td th:text="${row.author}"></td>
             <td th:text="${row.dateUpdate}"></td>
             <td th:text="${row.getShortWord()}" data-toggle="tooltip" data-placement="top" th:title="${row.introduce}"></td>
-            <td style="text-align: center"><a th:href="@{/blog/{id}/view(id=${row.getId()})}">
-                <button class="btn btn-warning btn-lg">View</button>
+            <td style="text-align: center"><a th:href="@{/blog/{id}/view_guest(id=${row.getId()})}">
+                <button class="btn btn-outline-warning btn-lg">View</button>
             </a></td>
         </tr>
         </tbody>
@@ -46,8 +46,8 @@
     <a th:if="${blogList.hasNext()}" th:href="@{/listBlogSecurity(page = ${blogList.number + 1}, keyword = ${inputCheck})}"><button type="button" class="btn btn-outline-primary">Next</button></a>
 </div>
 
-<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
 
+<!--<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>-->
 <footer th:replace="/layout :: footer"></footer>
 </body>
 </html>

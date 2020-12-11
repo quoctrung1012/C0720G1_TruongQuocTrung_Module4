@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<div class="container-fluid">
+<th:block th:include="/login/_menu"></th:block>
+<h3>View Blog</h3>
+<p>
+    <a th:href="@{/}"><button class="btn btn-outline-primary btn-lg">Back to blog list</button></a>
+</p>
+<h3 style="text-align: center" th:text="${blog.getTitle()}"></h3>
+<div id="form">
+    <form th:object="${blog}" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+        <table class="table table-hover table-bordered display">
+            <tr>
+                <th>Category</th>
+                <td><input class="form-control" type="text" th:field="*{category.nameCategory}" readonly/></td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td><input class="form-control" type="text" th:field="*{title}" readonly/></td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td><input class="form-control" type="text" th:field="*{author}" readonly/></td>
+            </tr>
+            <tr>
+                <th>Date Update</th>
+                <td><input class="form-control" type="date" th:field="*{dateUpdate}" readonly/></td>
+            </tr>
+            <tr>
+                <th>Introduce</th>
+                <td><input class="form-control" type="text" th:field="*{introduce}" readonly></td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="5" type="text" th:field="*{content}" readonly></textarea>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

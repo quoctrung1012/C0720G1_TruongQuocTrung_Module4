@@ -4,6 +4,7 @@
     <title>User Author</title>
 </head>
 <body>
+<div class="container-fluid">
 <!-- Include _menu.html -->
 <th:block th:include="/login/_menu"></th:block>
 
@@ -17,7 +18,7 @@
 
 <div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
 
-
+</div>
 </body>
 
 </html>
