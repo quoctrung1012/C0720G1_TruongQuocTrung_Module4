@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: head">
+<body>
+<div class="container-fluid">
+    <h3>List Note</h3>
+    <p>
+        <a th:href="@{/note/create}">
+            <button class="btn btn-outline-secondary btn-lg">Add new Note</button>
+        </a>
+    </p>
+    <div id="notify">
+        <div th:if="${success}"><span th:text="${success}"></span></div>
+    </div>
+    <form action="/note/listNote" class="form-inline">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control mr-sm-2" placeholder="Input Title" name="input">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Search Title</button>
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-hover table-bordered display">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Note Type</th>
+            <th>Content</th>
+            <th colspan="3">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row : ${noteList}">
+            <td th:text="${row.title}"></td>
+            <td th:text="${row.noteType.name}"></td>
+            <td th:text="${row.getShortWord()}" data-toggle="tooltip" data-placement="top"
+                th:title="${row.content}"></td>
+            <td style="text-align: center"><a th:href="@{/note/{id}/edit(id=${row.getId()})}">
+                <button class="btn btn-outline-success btn-lg">Edit</button>
+            </a></td>
+<!--            <td style="text-align: center"><a th:href="@{/note/{id}/delete(id=${row.getId()})}">-->
+<!--                <button class="btn btn-outline-danger btn-lg">Delete</button>-->
+<!--            </a></td>-->
+            <td>
+                <button class="btn btn-danger item-btn display-7" target="_blank" th:data-id="${row.id}" th:data-title="${row.title}" th:data-type="${row.noteType}"
+                        onclick="getInfo(this.getAttribute('data-id'), this.getAttribute('data-title'), this.getAttribute('data-type'))"
+                        data-toggle="modal" data-target="#deleteModal">Delete
+                </button>
+            </td>
+
+            <td style="text-align: center"><a th:href="@{/note/{id}/view(id=${row.getId()})}">
+                <button class="btn btn-outline-warning btn-lg">View</button>
+            </a></td>
+        </tr>
+        </tbody>
+    </table>
+    <p><span th:text="${noteList.number + 1}"></span>/<span th:text="${noteList.totalPages}"></span></p>
+
+    <a th:if="${noteList.hasPrevious()}" th:href="@{listNote(page = 0, input = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary"><<</button>
+    </a>
+
+    <a th:if="${noteList.hasPrevious()}" th:href="@{listNote(page = ${noteList.number - 1}, input = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary">Back</button>
+    </a>
+
+    <th:block th:each="i: ${#numbers.sequence(noteList.number, noteList.totalPages - 1)}">
+        <button type="button" class="btn btn-outline-primary">
+            <a th:href="@{listNote(page = ${i}, keyword = ${inputCheck})}" th:text="${i + 1}"></a>
+        </button>
+    </th:block>
+
+    <a th:if="${noteList.hasNext()}" th:href="@{listNote(page = ${noteList.number + 1}, input = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary">Next</button>
+    </a>
+
+    <a th:href="@{listNote(page = ${noteList.totalPages - 1}, input = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary">>></button>
+    </a>
+</div>
+
+<!-- Modal Delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="height: 400px">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/note/delete" method="get">
+                <input type="hidden" id="deleteID" name="deleteID">
+                <div class="modal-body">
+                    <h3>Please confirm for deleting the customer</h3>
+                    <h2>Name: <input id="deleteTitle" style="border: none" readonly></h2>
+                    <h2>ID: <input id="noteType" style="border: none" readonly></h2>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" style="margin-left: 20px">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+<script th:inline="javascript">
+    function getInfo(id, title, type) {
+        $('#deleteID').val(id);
+        $('#deleteTitle').val(title);
+        $('#noteType').val(type);
+    }
+</script>
+</body>
+</html>

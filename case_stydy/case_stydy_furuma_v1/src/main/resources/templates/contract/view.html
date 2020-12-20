@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: head">
+<body>
+
+<div class="container-fluid">
+    <h3>View Contract</h3>
+    <p>
+        <a th:href="@{/contract/listContract}">
+            <button class="btn btn-outline-primary">Back to contract list</button>
+        </a>
+    </p>
+    <h4>Information Contract: <span th:text="${contract.getContractCode()}"></span></h4>
+    <div id="form">
+        <form th:object="${contract}" method="POST" novalidate="novalidate">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Id Contract</label>
+                        <input type="text" th:value="${contract.getContractCode()}" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Contract Start Day</label>
+                        <input type="date" th:field="*{startDate}" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Contract End Day </label>
+                        <input type="date" th:field="*{endDate}" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Employee</label>
+                        <input type="text" th:field="*{employee.nameEmployee}" class="form-control" readonly/>
+                    </div>
+                    <div class="form-group">
+                        <label>Customer</label>
+                        <input type="text" th:field="*{customer.nameCustomer}" class="form-control" readonly/>
+                    </div>
+                    <div class="form-group">
+                        <label>Service</label>
+                        <input type="text" th:field="*{serviceResort.nameService}" class="form-control" readonly/>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Deposit</label>
+                        <input type="text" th:field="*{deposit}" class="form-control" placeholder="Input Deposit" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Total</label>
+                        <input type="text" th:field="*{total}" class="form-control" placeholder="Total" readonly>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

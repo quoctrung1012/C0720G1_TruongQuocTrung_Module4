@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: head">
+<body>
+<div class="container-fluid">
+    <h3>List Employee</h3>
+    <p>
+        <a th:href="@{/employee/create}">
+            <button class="btn btn-outline-secondary">Add new employee</button>
+        </a>
+    </p>
+    <div id="notify">
+        <div id="message"  th:if="${success}"><span th:text="${success}"></span></div>
+    </div>
+    <form th:action="@{/employee/listEmployee}" class="form-inline my-2 my-lg-0">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control mr-sm-2" placeholder="Search" name="input">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+    <table class="table table-hover table-bordered display">
+        <thead>
+        <tr>
+            <th>Name Employee</th>
+<!--            <th>Birthday</th>-->
+<!--            <th>Id Card</th>-->
+<!--            <th>Salary</th>-->
+            <th>Phone</th>
+<!--            <th>Email</th>-->
+<!--            <th>Address</th>-->
+            <th>Position</th>
+            <th>Division</th>
+            <th>Education Degree</th>
+            <th>Account</th>
+            <th colspan="3">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row : ${employeeList}">
+            <td th:text="${row.nameEmployee}"></td>
+<!--            <td th:text="${row.birthday}"></td>-->
+<!--            <td th:text="${row.idCard}"></td>-->
+<!--            <td th:text="${row.salary}"></td>-->
+            <td th:text="${row.phone}"></td>
+<!--            <td th:text="${row.email}"></td>-->
+<!--            <td th:text="${row.address}"></td>-->
+            <td th:text="${row.position.namePosition}"></td>
+            <td th:text="${row.division.nameDivision}"></td>
+            <td th:text="${row.educationDegree.nameEducationDegree}"></td>
+<!--            <td th:text="${row.accountUser.userName}"></td>-->
+
+            <td style="text-align: center"><a th:href="@{/employee/{id}/edit(id=${row.getId()})}">
+                <button class="btn btn-outline-success">Edit</button>
+            </a></td>
+            <td style="text-align: center"><a th:href="@{/employee/{id}/delete(id=${row.getId()})}">
+                <button class="btn btn-outline-danger">Delete</button>
+            </a></td>
+            <td style="text-align: center"><a th:href="@{/employee/{id}/view(id=${row.getId()})}">
+                <button class="btn btn-outline-warning">View</button>
+            </a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p><span th:text="${employeeList.number + 1}"></span>/<span th:text="${employeeList.totalPages}"></span></p>
+
+    <a th:if="${employeeList.hasPrevious()}" th:href="@{listEmployee(page = 0, input = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary"><<</button>
+    </a>
+
+    <a th:if="${employeeList.hasPrevious()}" th:href="@{listEmployee(page = ${employeeList.number - 1}, input = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary">Back</button>
+    </a>
+
+    <th:block th:each="i: ${#numbers.sequence(employeeList.number, employeeList.totalPages - 1)}">
+        <button type="button" class="btn btn-outline-primary">
+            <a th:href="@{listEmployee(page = ${i}, keyword = ${inputCheck})}" th:text="${i + 1}"></a>
+        </button>
+    </th:block>
+
+    <a th:if="${employeeList.hasNext()}" th:href="@{listEmployee(page = ${employeeList.number + 1}, input = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary">Next</button>
+    </a>
+
+    <a th:href="@{listEmployee(page = ${employeeList.totalPages - 1}, input = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary">>></button>
+    </a>
+
+</div>
+
+<footer th:replace="/layout/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: head">
+<body>
+<div class="container-fluid">
+    <h3>List Customer</h3>
+    <p>
+        <a th:href="@{/customer/create}">
+            <button class="btn btn-outline-secondary">Add new Customer</button>
+        </a>
+    </p>
+    <div id="notify">
+        <div id="message" th:if="${success}"><span th:text="${success}"></span></div>
+    </div>
+    <form th:action="@{/customer/listCustomer}" class="form-inline my-2 my-lg-0" th:object="${customer}">
+        <div class="input-group mb-3">
+<!--            <input type="text" class="form-control mr-sm-2" placeholder="Search" name="input01">-->
+
+            <input type="text" class="form-control mr-sm-2" placeholder="Search Name" name="input03">
+            <input type="text" class="form-control mr-sm-2" placeholder="Search List" name="input02">
+            <select class="form-group mr-sm-2" name="input01">
+                <option class="form-control mr-sm-2" value="address">Address</option>
+                <option class="form-control mr-sm-2" value="phone">Phone</option>
+                <option class="form-control mr-sm-2" value="email">Email</option>
+                <option class="form-control mr-sm-2" value="idCard">Id Card</option>
+                <option class="form-control mr-sm-2" value="customerType">Customer Type</option>
+            </select>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+    <table class="table table-hover table-bordered display">
+        <thead>
+        <tr>
+            <th>Name Customer</th>
+            <th>Birthday</th>
+            <th>Gender</th>
+            <th>Id Card</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Customer Type</th>
+            <th colspan="3">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row : ${customerList}">
+            <td th:text="${row.nameCustomer}"></td>
+            <td th:text="${row.birthday}"></td>
+            <td th:text="${row.genderPerson.gender}"></td>
+            <td th:text="${row.idCard}"></td>
+            <td th:text="${row.phone}"></td>
+            <td th:text="${row.email}"></td>
+            <td th:text="${row.address}"></td>
+            <td th:text="${row.customerType.nameCustomerType}"></td>
+
+            <td style="text-align: center"><a th:href="@{/customer/{id}/edit(id=${row.getId()})}">
+                <button class="btn btn-outline-success">Edit</button>
+            </a></td>
+            <td style="text-align: center">
+                <button class="btn btn-outline-danger" th:data-id="${customer.id}"
+                        onclick="getInfo(this.getAttribute('data-id'))"
+                        data-toggle="modal" data-target="#deleteModal">Delete Modal
+                </button>
+            </td>
+            <td style="text-align: center"><a th:href="@{/customer/{id}/delete(id=${row.getId()})}">
+                <button class="btn btn-outline-danger">Delete</button>
+            </a></td>
+            <td style="text-align: center"><a th:href="@{/customer/{id}/view(id=${row.getId()})}">
+                <button class="btn btn-outline-warning">View</button>
+            </a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p><span th:text="${customerList.number + 1}"></span>/<span th:text="${customerList.totalPages}"></span></p>
+    <a th:if="${customerList.hasPrevious()}" th:href="@{listCustomer(page = 0, input = ${inputCheck01})}">
+        <button type="button" class="btn btn-outline-primary"><<</button>
+    </a>
+
+    <a th:if="${customerList.hasPrevious()}" th:href="@{listCustomer(page = ${customerList.number - 1}, input = ${inputCheck01})}">
+        <button type="button" class="btn btn-outline-primary">Back</button>
+    </a>
+
+    <th:block th:each="i: ${#numbers.sequence(customerList.number, customerList.totalPages - 1)}">
+        <button type="button" class="btn btn-outline-primary">
+            <a th:href="@{listCustomer(page = ${i}, input01 = ${inputCheck01})}" th:text="${i + 1}"></a>
+        </button>
+    </th:block>
+
+    <a th:if="${customerList.hasNext()}" th:href="@{listCustomer(page = ${customerList.number + 1}, input = ${inputCheck01})}" >
+        <button type="button" class="btn btn-outline-primary">Next</button>
+    </a>
+
+    <a th:href="@{listCustomer(page = ${customerList.totalPages - 1}, input = ${inputCheck01})}">
+        <button type="button" class="btn btn-outline-primary">>></button>
+    </a>
+
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="height: 400px">
+            <div class="modal-header">
+                <h5 class="modal-title">Delete Confirmation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/customers/delete" method="get">
+                <input type="hidden" id="deleteID" name="deleteID">
+                <div class="modal-body">
+                    <h3>Please confirm for deleting the customer</h3>
+                    <!--                    <h2>Name: <input id="deleteName" style="border: none" readonly></h2>-->
+                    <!--                    <h2>ID: <input id="employeeCode" style="border: none" readonly></h2>-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" style="margin-left: 20px">Confirm</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer th:replace="/layout/layout :: footer"></footer>
+<script th:inline="javascript">
+    function getInfo(id) {
+        $("#deleteID").val(id);
+        // $("#deleteName").val(name);
+        // $("#employeeCode").val(code);
+    }
+</script>
+</body>
+</html>

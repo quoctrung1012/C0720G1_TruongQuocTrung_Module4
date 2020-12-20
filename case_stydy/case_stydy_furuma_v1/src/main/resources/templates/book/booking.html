@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: head">
+<body>
+<div class="container-fluid">
+    <p>
+        <a th:href="@{/service_resort/listServiceResort}">
+            <button class="btn btn-outline-primary">Back to service resort list</button>
+        </a>
+    </p>
+    <h3>List Booking Service Resort and Attach Service</h3>
+    <div class="row">
+        <div class="col">
+            <h4>List Booking Service Resort</h4>
+            <table class="table table-hover table-bordered display">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name service</th>
+                    <th>Cost Service</th>
+                    <th>Total Service</th>
+                    <th>Quantity Service</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="itemService : ${session.bookingService.itemServiceList}">
+                    <td th:text="${itemService.serviceResort.id}"></td>
+                    <td th:text="${itemService.serviceResort.nameService}"></td>
+                    <td th:text="${itemService.serviceResort.cost}"></td>
+                    <td th:text="${itemService.subTotalService}"></td>
+                    <td>
+                        <form th:action="@{/book_service/update_book_service}" method="post">
+                            <input type="hidden" th:value="${itemService.serviceResort.id}" name="id_service">
+                            <input style="width: 50%" class="form-control" type="number" min="1" th:value="${itemService.quantity}" name="quantity_service">
+                            <button type="submit" class="btn btn-outline-success">Update Cost Service</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form th:action="@{/book_service/remove_book_service}" method="post">
+                            <input class="form-control" type="hidden" th:value="${itemService.serviceResort.id}" name="id_service">
+                            <button type="submit" class="btn btn-outline-success">Remove Cost Service</button>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">Total Service: <span th:text="${session.bookingService.totalService}"></span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col">
+            <h4>List Booking Attach Service</h4>
+            <table class="table table-hover table-bordered display">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name attach service</th>
+                    <th>Cost attach Service</th>
+                    <th>Total Attach Service</th>
+                    <th>Quantity Attach Service</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="itemAttach : ${session.bookingAttach.itemAttachList}">
+                    <td th:text="${itemAttach.attachService.id}"></td>
+                    <td th:text="${itemAttach.attachService.attachName}"></td>
+                    <td th:text="${itemAttach.attachService.attachCost}"></td>
+                    <td th:text="${itemAttach.subTotalAttach}"></td>
+                    <td>
+                        <form th:action="@{/book_attach/update_book_attach}" method="post">
+                            <input type="hidden" th:value="${itemAttach.attachService.id}" name="id_attach">
+                            <input class="form-control" type="number" min="1" th:value="${itemAttach.quantity}" name="quantity_attach">
+                            <button type="submit" class="btn btn-outline-success">Update Cost Attach</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form th:action="@{/book_attach/remove_book_attach}" method="post">
+                            <input class="form-control" type="hidden" th:value="${itemAttach.attachService.id}" name="id_attach">
+                            <button type="submit" class="btn btn-outline-success">Remove Cost Attach</button>
+                        </form>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">Total Attach: <span th:text="${session.bookingAttach.totalAttach}"></span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>

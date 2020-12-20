@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<body>
+
+<div class="container-fluid">
+    <h3>Add Contract</h3>
+    <p>
+        <a th:href="@{/contract_detail/listContractDetail}">
+            <button class="btn btn-outline-primary">Back to contract detail list</button>
+        </a>
+    </p>
+    <div id="form">
+        <form action="#" th:action="@{/contract/save}" th:object="${contractDetail}" method="POST" novalidate="novalidate">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Contract Start Day</label>
+                        <input id="start" type="date" th:field="*{startDate}" class="form-control">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('startDate')}"
+                               th:errors="*{startDate}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label>Contract End Day </label>
+                        <input id="end" type="date" th:field="*{endDate}" class="form-control">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('endDate')}"
+                               th:errors="*{endDate}"></small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Employee</label>
+                        <select id="select_emp" class="form-control" th:field="*{employee}">
+                            <option
+                                    th:each="employee : ${employeeList}"
+                                    th:value="${employee.id}"
+                                    th:text="${employee.nameEmployee}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Customer</label>
+                        <select id="select_cus" class="form-control" th:field="*{customer}">
+                            <option
+                                    th:each="customer : ${customerList}"
+                                    th:value="${customer.id}"
+                                    th:text="${customer.nameCustomer}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Resort</label>
+                        <select id="select_ser" class="form-control" th:field="*{serviceResort}">
+                            <option
+                                    th:each="serviceResort : ${serviceResortList}"
+                                    th:value="${serviceResort.id}"
+                                    th:text="${serviceResort.nameService}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Deposit</label>
+                        <input id="deposit" type="text" th:field="*{deposit}" class="form-control" placeholder="Input Deposit">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('deposit')}"
+                               th:errors="*{deposit}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label>Total</label>
+                        <input id="total" type="text" th:field="*{total}" class="form-control" placeholder="Total">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('total')}"
+                               th:errors="*{total}"></small>
+                    </div>
+                </div>
+            </div>
+            <p>
+                <button type="submit" class="btn btn-outline-success">Save</button>
+            </p>
+        </form>
+    </div>
+</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

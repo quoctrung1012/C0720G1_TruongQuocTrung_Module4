@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: head">
+<body>
+<div class="container-fluid">
+    <h3>List Service Resort</h3>
+    <p>
+        <a th:href="@{/service_resort/create}">
+            <button class="btn btn-outline-secondary">Add new Service</button>
+        </a>
+    </p>
+    <div id="notify">
+        <div id="message"  th:if="${success}"><span th:text="${success}"></span></div>
+    </div>
+    <form th:action="@{/service_resort/listServiceResort}" class="form-inline my-2 my-lg-0">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control mr-sm-2" placeholder="Search" name="input">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+    <table class="table table-hover table-bordered display">
+        <thead>
+        <tr>
+            <th>Name Service Resort</th>
+            <th>Area</th>
+            <th>Max People</th>
+            <th>Standard</th>
+            <th>Number of Floor</th>
+            <th>Rent Type Name</th>
+            <th>Rent Type Cost</th>
+            <th>Service Type Name</th>
+            <th>Pool Area</th>
+            <th>Description</th>
+            <th>Cost</th>
+            <th colspan="4">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row : ${serviceResortList}">
+            <td th:text="${row.nameService}"></td>
+            <td th:text="${row.area}"></td>
+            <td th:text="${row.maxPeople}"></td>
+            <td th:text="${row.standard}"></td>
+            <td th:text="${row.numOfFloors}"></td>
+            <td th:text="${row.rentType.renTypeName}"></td>
+            <td th:text="${row.rentType.renTypeCost}"></td>
+            <td th:text="${row.serviceType.serviceTypeName}"></td>
+            <td th:text="${row.poolArea}"></td>
+            <td th:text="${row.description}"></td>
+            <td th:text="${row.cost}"></td>
+            <td style="text-align: center">
+                <form th:action="@{/book_service/add_book_service}" method="post">
+                    <input type="hidden" th:value="${row.id}" name="id_service">
+                    <button type="submit" class="btn btn-outline-success">Book Service</button>
+                </form>
+            </td>
+            <td style="text-align: center"><a th:href="@{/service_resort/{id}/edit(id=${row.getId()})}">
+                <button class="btn btn-outline-success">Edit</button>
+            </a></td>
+            <td style="text-align: center"><a th:href="@{/service_resort/{id}/delete(id=${row.getId()})}">
+                <button class="btn btn-outline-danger">Delete</button>
+            </a></td>
+            <td style="text-align: center"><a th:href="@{/service_resort/{id}/view(id=${row.getId()})}">
+                <button class="btn btn-outline-warning">View</button>
+            </a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p><span th:text="${serviceResortList.number + 1}"></span>/<span th:text="${serviceResortList.totalPages}"></span></p>
+    <a th:if="${serviceResortList.hasPrevious()}" th:href="@{listServiceResort(page = 0, input = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary"><<</button>
+    </a>
+
+    <a th:if="${serviceResortList.hasPrevious()}" th:href="@{listServiceResort(page = ${serviceResortList.number - 1}, input = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary">Back</button>
+    </a>
+
+    <th:block th:each="i: ${#numbers.sequence(serviceResortList.number, serviceResortList.totalPages - 1)}">
+        <button type="button" class="btn btn-outline-primary">
+            <a th:href="@{listCustomer(page = ${i}, keyword = ${inputCheck})}" th:text="${i + 1}"></a>
+        </button>
+    </th:block>
+
+    <a th:if="${serviceResortList.hasNext()}" th:href="@{listServiceResort(page = ${serviceResortList.number + 1}, input = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary">Next</button>
+    </a>
+
+    <a th:href="@{listServiceResort(page = ${serviceResortList.totalPages - 1}, input = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary">>></button>
+    </a>
+
+</div>
+
+<footer th:replace="/layout/layout :: footer"></footer>
+<script>
+
+</script>
+</body>
+</html>

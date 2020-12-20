@@ -33,7 +33,7 @@
         <td th:text="${item.subTotal}"></td>
         <td>
             <form action="#" th:action="@{/cart/remove}" method="post">
-                <input type="hidden" th:value="${item.products.id}" name="=id">
+                <input type="hidden" th:value="${item.products.id}" name ="id">
                 <button type="submit">Remove</button>
             </form>
         </td>

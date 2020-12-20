@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: head">
+<body>
+<div class="container-fluid">
+    <h3>List Contract</h3>
+    <p>
+        <a th:href="@{/contract/create}">
+            <button class="btn btn-outline-secondary">Add new Contract</button>
+        </a>
+    </p>
+    <div id="notify">
+        <div id="message" th:if="${success}"><span th:text="${success}"></span></div>
+    </div>
+    <form th:action="@{/contract/listContract}" class="form-inline my-2 my-lg-0">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control mr-sm-2" placeholder="Search" name="input">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+    <table class="table table-hover table-bordered display">
+        <thead>
+        <tr>
+            <th>Contract Start Day</th>
+            <th>Contract End Day</th>
+            <th>Employee</th>
+            <th>Customer</th>
+            <th>Service</th>
+            <th>Deposit</th>
+            <th>Total</th>
+            <th colspan="3">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row : ${contractList}">
+            <td th:text="${row.startDate}"></td>
+            <td th:text="${row.endDate}"></td>
+            <td th:text="${row.employee.nameEmployee}"></td>
+            <td th:text="${row.customer.nameCustomer}"></td>
+<!--            <td th:text="${row.serviceResort.nameService}"></td>-->
+            <td th:text="${row.deposit}"></td>
+            <td th:text="${row.total}"></td>
+            <td style="text-align: center"><a th:href="@{/contract/{id}/edit(id=${row.getId()})}">
+                <button class="btn btn-outline-success">Edit</button>
+            </a></td>
+            <td style="text-align: center"><a th:href="@{/contract/{id}/delete(id=${row.getId()})}">
+                <button class="btn btn-outline-danger">Delete</button>
+            </a></td>
+            <td style="text-align: center"><a th:href="@{/contract/{id}/view(id=${row.getId()})}">
+                <button class="btn btn-outline-warning">View</button>
+            </a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p><span th:text="${contractList.number + 1}"></span>/<span th:text="${contractList.totalPages}"></span></p>
+
+    <a th:if="${contractList.hasPrevious()}" th:href="@{listContract(page = 0, input = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary"><<</button>
+    </a>
+
+    <a th:if="${contractList.hasPrevious()}" th:href="@{listContract(page = ${contractList.number - 1}, input = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary">Back</button>
+    </a>
+
+    <th:block th:each="i: ${#numbers.sequence(contractList.number, contractList.totalPages - 1)}">
+        <button type="button" class="btn btn-outline-primary">
+            <a th:href="@{listContract(page = ${i}, keyword = ${inputCheck})}" th:text="${i + 1}"></a>
+        </button>
+    </th:block>
+
+    <a th:if="${contractList.hasNext()}" th:href="@{listContract(page = ${contractList.number + 1}, input = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary">Next</button>
+    </a>
+
+    <a th:href="@{listContract(page = ${contractList.totalPages - 1}, input = ${inputCheck})}">
+        <button type="button" class="btn btn-outline-primary">>></button>
+    </a>
+
+</div>
+
+<footer th:replace="/layout/layout :: footer"></footer>
+</body>
+</html>

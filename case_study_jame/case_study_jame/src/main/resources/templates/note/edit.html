@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: head">
+<body>
+
+<div class="container">
+    <h3>Edit Note</h3>
+    <p>
+        <a th:href="@{/note/listNote}">
+            <button class="btn btn-outline-primary">Back to note list</button>
+        </a>
+    </p>
+    <div id="form">
+        <form action="#" th:action="@{/note/save}" th:object="${note}" method="POST" novalidate="novalidate">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="form-group">
+                <label>Title</label>
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('title')}"
+                       th:errors="*{title}"></small>
+                <input type="text" th:field="*{title}" class="form-control" placeholder="Title Note">
+            </div>
+            <div class="form-group">
+                <label>Note Type</label>
+                <select class="form-control" th:field="*{noteType}">
+                    <option
+                            th:each="noteType : ${noteTypeList}"
+                            th:value="${noteType.id}"
+                            th:text="${noteType.name}"
+                            th:selected="${noteType.id} == *{noteType.id}"></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Content</label>
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('content')}"
+                       th:errors="*{content}"></small>
+                <textarea class="form-control" rows="5" type="text" th:field="*{content}"></textarea>
+
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p>
+                            <button class="btn btn-outline-success" type="reset">Reset</button>
+                        </p>
+                    </div>
+                    <div class="col">
+                        <p>
+                            <button type="submit" class="btn btn-outline-success">Save</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+<footer th:replace="/layout/layout :: footer"></footer>
+</body>
+</html>

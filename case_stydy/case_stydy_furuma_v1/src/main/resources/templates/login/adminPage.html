@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout ::head">
+    <title>User Author</title>
+</head>
+<body>
+<div class="container-fluid">
+<!-- Include _menu.html -->
+
+<h3>Admin Page</h3>
+<h4>Welcome :
+    <span th:utext="${#request.userPrincipal.name}"></span>
+</h4>
+<b>This is protected page!</b>
+
+<br/><br/>
+
+<div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+
+</div>
+</body>
+
+</html>

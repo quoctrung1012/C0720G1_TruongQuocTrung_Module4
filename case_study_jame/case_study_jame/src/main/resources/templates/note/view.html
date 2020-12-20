@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: head">
+<body>
+
+<div class="container">
+    <h3>View Note</h3>
+    <p>
+        <a th:href="@{/note/listNote}">
+            <button class="btn btn-outline-primary">Back to note list</button>
+        </a>
+    </p>
+    <div id="form">
+        <form th:object="${note}" novalidate="novalidate">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" th:field="*{title}" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Note Type</label>
+                        <input type="text" th:field="*{noteType.name}" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Content</label>
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('content')}"
+                       th:errors="*{content}"></small>
+                <textarea class="form-control" rows="5" type="text" th:field="*{content}"></textarea>
+
+            </div>
+        </form>
+    </div>
+</div>
+<footer th:replace="/layout/layout :: footer"></footer>
+</body>
+</html>

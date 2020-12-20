@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: head">
+<body>
+<div class="container-fluid">
+    <h3>List Attach Service</h3>
+    <table class="table table-hover table-bordered display">
+        <thead>
+        <tr>
+            <th>Name Attach</th>
+            <th>Cost</th>
+            <th>Unit</th>
+            <th>Status</th>
+            <th>Booking</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="row : ${attachList}">
+            <td th:text="${row.attachName}"></td>
+            <td th:text="${row.attachCost}"></td>
+            <td th:text="${row.attachUnit}"></td>
+            <td th:text="${row.attachStatus}"></td>
+            <td style="text-align: center">
+                <form th:action="@{/book_attach/add_book_attach}" method="post">
+                    <input type="hidden" th:value="${row.id}" name="id_attach">
+                    <button type="submit" class="btn btn-outline-success">Book Attach</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<footer th:replace="/layout/layout :: footer"></footer>
+</body>
+</html>

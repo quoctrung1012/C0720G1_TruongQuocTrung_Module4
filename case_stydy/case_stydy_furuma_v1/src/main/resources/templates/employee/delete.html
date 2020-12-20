@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: head">
+<body>
+
+<div class="container-fluid">
+    <h3>Delete Employee</h3>
+    <p>
+        <a th:href="@{/employee/listEmployee}">
+            <button class="btn btn-outline-primary ">Back to employee list</button>
+        </a>
+    </p>
+    <h4>Are you sure you will delete this information <span th:text="${employee.nameEmployee}"></span> ?</h4>
+    <div id="form">
+        <form action="#" th:action="@{/employee/delete}" th:object="${employee}"
+              method="POST" novalidate="novalidate">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="form-group">
+                <label>Id Employee</label>
+                <input type="text" th:value="${employee.getEmployeeCode()}" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label>Name Employee</label>
+                <input type="text" th:field="*{nameEmployee}" class="form-control" readonly>
+            </div>
+            <div class="form-group">
+                <label>Birthday</label>
+                <input type="date" th:field="*{birthday}" class="form-control"  readonly>
+            </div>
+            <div class="form-group">
+                <label>Position</label>
+                <input type="text" th:field="*{position.namePosition}" class="form-control"  readonly>
+            </div>
+            <div class="form-group">
+                <label>Division</label>
+                <input type="text" th:field="*{division.nameDivision}" class="form-control"  readonly>
+            </div>
+            <div class="form-group">
+                <label>Education Degree</label>
+                <input type="text" th:field="*{educationDegree.nameEducationDegree}" class="form-control"  readonly>
+            </div>
+            <p><button type="submit" class="btn btn-outline-success">Delete</button></p>
+        </form>
+    </div>
+
+</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

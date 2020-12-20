@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: head">
+<body>
+
+<div class="container-fluid">
+    <h3>Edit Contract</h3>
+    <p>
+        <a th:href="@{/contract/listContract}">
+            <button class="btn btn-outline-primary">Back to contract list</button>
+        </a>
+    </p>
+    <h4>You are editing contract information : <span th:text="${contract.getContractCode()}"></span></h4>
+    <div id="form">
+        <form action="#" th:action="@{/contract/update}" th:object="${contract}" method="POST" novalidate="novalidate">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Id Contract</label>
+                        <input type="text" th:value="${contract.getContractCode()}" class="form-control" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Contract Start Day</label>
+                        <input id="start" type="date" th:field="*{startDate}" class="form-control">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('startDate')}"
+                               th:errors="*{startDate}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label>Contract End Day </label>
+                        <input  id="end" type="date" th:field="*{endDate}" class="form-control">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('endDate')}"
+                               th:errors="*{endDate}"></small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Employee</label>
+                        <select class="form-control" th:field="*{employee.id}">
+                            <option
+                                    th:each="emp : ${employeeList}"
+                                    th:value="${emp.id}"
+                                    th:text="${emp.nameEmployee}"
+                                    th:selected="${emp.id}== *{employee.id}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Customer</label>
+                        <select class="form-control" th:field="*{customer.id}">
+                            <option
+                                    th:each="cus : ${customerList}"
+                                    th:value="${cus.id}"
+                                    th:text="${cus.nameCustomer}"
+                                    th:selected="${cus.id} == *{customer.id}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Resort</label>
+                        <select class="form-control" th:field="*{serviceResort.id}">
+                            <option
+                                    th:each="service : ${serviceResortList}"
+                                    th:value="${service.id}"
+                                    th:text="${service.nameService}"
+                                    th:selected="${service.id} == *{serviceResort.id}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Deposit</label>
+                        <input id="deposit" type="text" th:field="*{deposit}" class="form-control" placeholder="Input Deposit">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('deposit')}"
+                               th:errors="*{deposit}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label>Total</label>
+                        <input id="total" type="text" th:field="*{total}" class="form-control" placeholder="Total">
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('total')}"
+                               th:errors="*{total}"></small>
+                    </div>
+                </div>
+            </div>
+            <p><button class="btn btn-outline-success" type="reset">Reset</button></p>
+            <p>
+                <button id="btn" type="button" class="btn btn-outline-success">Update Total</button>
+            </p>
+            <p>
+                <button type="submit" class="btn btn-outline-success">Save</button>
+            </p>
+        </form>
+    </div>
+</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

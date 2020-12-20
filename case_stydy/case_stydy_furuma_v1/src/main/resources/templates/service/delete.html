@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout/layout :: head">
+<body>
+
+<div class="container-fluid">
+    <h3>Delete Customer</h3>
+    <p>
+        <a th:href="@{/service_resort/listServiceResort}">
+            <button class="btn btn-outline-primary">Back to service resort list</button>
+        </a>
+    </p>
+    <h4>Are you sure you will delete this information service resort <span
+            th:text="${serviceResort.nameService}"></span> ?</h4>
+    <div id="form">
+        <form action="#" th:action="@{/service_resort/delete}" th:object="${serviceResort}"
+              method="POST" novalidate="novalidate">
+            <input type="hidden" th:field="*{id}"/>
+            <div class="form-group">
+                <label>Id Customer</label>
+                <input style="text-align: center" type="text" th:value="${serviceResort.getCustomerCode()}" class="form-control" readonly>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label>Name Service Resort</label>
+                        <input type="text" th:field="*{nameService}" class="form-control"
+                               placeholder="Name Service Resort" readonly>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('nameService')}"
+                               th:errors="*{nameService}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label>Area</label>
+                        <input type="text" th:field="*{area}" class="form-control" placeholder="Area" readonly>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('area')}"
+                               th:errors="*{area}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label>Max People</label>
+                        <input type="text" th:field="*{maxPeople}" class="form-control" placeholder="Max People"
+                               readonly>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('maxPeople')}"
+                               th:errors="*{maxPeople}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label>Standard</label>
+                        <input type="text" th:field="*{standard}" class="form-control" placeholder="Standard" readonly>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('standard')}"
+                               th:errors="*{standard}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label>Number Of Floors</label>
+                        <input type="text" th:field="*{numOfFloors}" class="form-control" placeholder="Number Of Floors"
+                               readonly>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('numOfFloors')}"
+                               th:errors="*{numOfFloors}"></small>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label>Pool Area</label>
+                        <input type="text" th:field="*{poolArea}" class="form-control" placeholder="Pool Area" readonly>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('poolArea')}"
+                               th:errors="*{poolArea}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" th:field="*{description}" class="form-control" placeholder="Description"
+                               readonly>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('description')}"
+                               th:errors="*{description}"></small>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Type</label>
+                        <input type="text" th:field="*{serviceType.serviceTypeName}" class="form-control" readonly/>
+                    </div>
+                    <div class="form-group">
+                        <label>Rent Type</label>
+                        <input type="text" th:field="*{rentType.renTypeName}" class="form-control" readonly/>
+                    </div>
+                    <div class="form-group">
+                        <label>Area</label>
+                        <input type="text" th:field="*{cost}" class="form-control" placeholder="Cost" readonly>
+                        <small class="form-text text-danger" th:if="${#fields.hasErrors('cost')}"
+                               th:errors="*{cost}"></small>
+                    </div>
+                </div>
+            </div>
+            <p>
+                <button type="submit" class="btn btn-outline-success">Delete</button>
+            </p>
+        </form>
+    </div>
+
+</div>
+<footer th:replace="layout/layout :: footer"></footer>
+</body>
+</html>

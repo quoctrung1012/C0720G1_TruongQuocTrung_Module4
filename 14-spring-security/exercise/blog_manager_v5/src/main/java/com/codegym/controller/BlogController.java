@@ -4,12 +4,9 @@ import com.codegym.entity.Blog;
 import com.codegym.entity.Category;
 import com.codegym.service.BlogService;
 import com.codegym.service.CategoryService;
-import com.codegym.ultil.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -38,7 +35,8 @@ public class BlogController {
     }
 
     @RequestMapping({"/listBlog"})
-    public String listBlog( Principal principal, Model model, @PageableDefault(size = 3) Pageable pageable, @RequestParam Optional<String> input) {
+    public String listBlog( Principal principal, Model model,
+                            @PageableDefault(size = 3) Pageable pageable, @RequestParam Optional<String> input) {
         //List<Blog> blogList = blogService.findAll(); //Dua ra list blog
 //        model.addAttribute("blogList", this.blogService.findAll(pageable));//phan trang
         String inputCheck = ""; //check để tiếp tục search và phân trang
